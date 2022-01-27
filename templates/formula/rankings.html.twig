@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Rankings{% endblock %}
+
+
+{% block body %}
+
+    <div class="container mt-3">
+        <table class="table table-bordered table-sm">
+            <thead>
+            <tr>
+                <th>Position</th>
+                <th>Points</th>
+                <th>Driver</th>
+                <th>Picture</th>
+                <th>Wins</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% set rankings = response.response%}
+            {% for ranking in rankings %}
+
+            <tr>
+                <td>{{ ranking.position }}</td>
+                <td>{{ ranking.points }}</td>
+                <td>{{ ranking.driver.name }}</td>
+                <td><img src="{{ranking.driver.image}}", width="200" height="150"></td>
+                <td>{{ ranking.wins }}</td>
+            </tr>
+
+            {% endfor %}
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

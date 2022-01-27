@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Seasons{% endblock %}
+
+{% block body %}
+
+
+    <br><br>
+    <div class="container">
+    <div class="dropdown">
+    <div class="col-md-12 text-center">
+
+
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+
+            Detalii sofer in functie de sezon
+        </button>
+        <ul class="dropdown-menu">
+            {% set seasons = response.response %}
+            {% for season in seasons %}
+                <li><a class="dropdown-item" href="{{ path('seasons_year', {'year':season}) }}">{{ season }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <br><br>
+
+{% endblock %}

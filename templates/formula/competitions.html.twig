@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}Competitions{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container mt-3">
+        <table class="table table-bordered table-sm">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>City</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% set competitions = response.response%}
+            {% for competition in competitions %}
+
+                <tr>
+                    <td>{{ competition.name }}</td>
+                    <td>{{ competition.location.country }}</td>
+                    <td>{{ competition.location.city }}</td>
+
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

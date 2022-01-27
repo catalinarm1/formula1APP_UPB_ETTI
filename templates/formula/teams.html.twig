@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+{% block title %}Teams{% endblock %}
+
+{% block body %}
+    <div class="container mt-3">
+        <table class="table table-bordered table-sm">
+            <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>President</th>
+                <th>Team Logo</th>
+                <th>Director</th>
+                <th>Technical manager</th>
+                <th>Engine</th>
+                <th>Tyres provider</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% set teams = response.response%}
+            {% for team in teams %}
+
+                <tr>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.president }}</td>
+                    <td><img src="{{team.logo}}" , width="150" height="100"></td>
+                    <td>{{ team.director }}</td>
+                    <td>{{ team.technical_manager }}</td>
+                    <td>{{ team.engine }}</td>
+                    <td>{{ team.tyres}}</td>
+
+                </tr>
+
+            {% endfor %}
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

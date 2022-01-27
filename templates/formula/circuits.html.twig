@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Circuits{% endblock %}
+{% block body %}
+    <div class="container mt-3">
+        <table class="table table-bordered table-sm">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Images of the Circuit</th>
+                <th>Opened time</th>
+                <th>Length</th>
+                <th>Competition name</th>
+                <th>Country</th>
+                <th>City</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% set circuits = response.response%}
+            {% for circuit in circuits %}
+
+                <tr>
+                    <td>{{ circuit.name }}</td>
+                    <td>{{ circuit.capacity }}</td>
+                    <td><img src="{{circuit.image}}"></td>
+                    <td>{{ circuit.opened }}</td>
+                    <td>{{ circuit.length }}</td>
+                    <td>{{ circuit.competition.name }}</td>
+                    <td>{{ circuit.competition.location.country }}</td>
+                    <td>{{ circuit.competition.location.city }}</td>
+                </tr>
+
+            {% endfor %}
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
